@@ -104,12 +104,19 @@ return {
 				},
 				capabilities = capabilities,
 			})
-			vim.lsp.enable({ "ts_ls", "vue_ls", "lua_ls", "roslyn" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
+
+			vim.lsp.enable({ "ts_ls", "vue_ls", "lua_ls", "roslyn", "html", "cssls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
+
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<C-.>", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { desc = "Show signature help" })
-			vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename symbol" })
+			vim.keymap.set(
+				"n",
+				"<leader>rr",
+				vim.lsp.buf.rename,
+				{ noremap = true, silent = true, desc = "Rename symbol" }
+			)
 
 			vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
 		end,
